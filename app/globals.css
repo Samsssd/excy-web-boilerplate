@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* ========================================================
+     EASILY SWITCHABLE COLORS (LIGHT THEME)
+     Change these hex values to customize your entire app colors.
+     ======================================================== */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;      /* e.g., Slate/Zinc 100 */
+  --text-primary: #09090b;      /* e.g., Zinc 950 */
+  --text-secondary: #52525b;    /* e.g., Zinc 600 */
+  --accent-color: #6366f1;      /* e.g., Indigo 500 */
+  --border-color: #e4e4e7;      /* e.g., Zinc 200 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ========================================================
+       EASILY SWITCHABLE COLORS (DARK THEME)
+       Change these hex values to customize your dark mode colors.
+       ======================================================== */
+    --bg-primary: #09090b;      /* e.g., Zinc 950 */
+    --bg-secondary: #18181b;    /* e.g., Zinc 900 */
+    --text-primary: #f4f4f5;    /* e.g., Zinc 100 */
+    --text-secondary: #a1a1aa;  /* e.g., Zinc 400 */
+    --accent-color: #818cf8;    /* e.g., Indigo 400 */
+    --border-color: #27272a;    /* e.g., Zinc 800 */
   }
 }
 
+@theme {
+  /* Tailwind v4 theme mapping to easily custom variables */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent-color);
+  --color-border-custom: var(--border-color);
+
+  /* Set default font family mapping to custom variable --font-sans */
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
